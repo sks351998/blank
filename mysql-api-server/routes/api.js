@@ -9,6 +9,7 @@ route.get('/',function(req,res){
 })
 
 route.post('/',(req,res)=>{
+    console.log(req.body)
     db.addNewUser(req.body.name,req.body.age,req.body.city)
     .then(() => res.redirect('/add/'))
     .catch((err)=>res.send({error:err}))
