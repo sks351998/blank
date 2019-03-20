@@ -3,8 +3,8 @@ const mysql = require('mysql2')
 const connection = mysql.createConnection({
     host:'localhost',
     database:'mytestdb',
-    user:'sks38',
-    password:'password'
+    user:'myuser',
+    password:'mypass'
 })
 
 function getAllUser(){
@@ -22,7 +22,7 @@ function getAllUser(){
     })
 }
 
-function addNewUser(){
+function addNewUser(name,age,city){
     return new Promise(function(resolve,reject){
         connection.query(
             `INSERT INTO persons(name,age,city) VALUES(?,?,?)`,
